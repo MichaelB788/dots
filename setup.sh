@@ -8,7 +8,7 @@ DOTFILES_PATH=$(cd -- "$(dirname -- "${BASH_SOURCE[0]}")" >/dev/null && pwd)
 xargs -a "$DOTFILES_PATH/pkgs.txt" sudo dnf install -y
 
 # Stow dotfiles
-(cd "$DOTFILES_PATH/modules" && stow -Rt "$HOME" */)
+stow --target="$HOME" --dir="$DOTFILES_PATH" --dotfiles modules
 
 # Download wallpaper
 wget -nc -P "$HOME/Pictures" "https://w.wallhaven.cc/full/je/wallhaven-jevqpy.png"
