@@ -1,4 +1,5 @@
 grim
+azote
 greybird-dark-theme
 
 kitty
