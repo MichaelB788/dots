@@ -41,11 +41,6 @@ hide_edge_borders smart
 # Configure the default border:
 default_border pixel 1
 
-# Waybar
-bar {
-    swaybar_command waybar
-}
-
 
 ### Variables
 #
@@ -136,12 +131,6 @@ output * bg ~/Pictures/wallhaven-jevqpy.png fill
 
     # Screen locking
     bindsym $mod+Escape exec swaylock & systemctl suspend
-
-    # Screenshotting
-    bindsym Print       exec grimshot save screen
-    bindsym Mod1+Print  exec grimshot save window
-    bindsym Shift+Print exec grimshot save area
-    bindsym Mod4+Print  exec grimshot copy area
 
 #
 # Moving around:
@@ -277,4 +266,4 @@ bindsym $mod+r mode "resize"
 # important to make the magic work. And if you want to learn the secret behind
 # the trick, it's all in the `wordexp(3)`.
 #
-# include '$(/usr/libexec/sway/layered-include "/usr/share/sway/config.d/*.conf" "/etc/sway/config.d/*.conf" "${XDG_CONFIG_HOME:-$HOME/.config}/sway/config.d/*.conf")'
+include '$(/usr/libexec/sway/layered-include "/usr/share/sway/config.d/*.conf" "/etc/sway/config.d/*.conf" "${XDG_CONFIG_HOME:-$HOME/.config}/sway/config.d/*.conf")'
