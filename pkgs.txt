@@ -1,9 +1,9 @@
-firefox
+grim
+greybird-dark-theme
+
 kitty
-gnome-tweaks
 
 lazygit
-kitty
 neovim
 
 fastfetch
