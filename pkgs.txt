@@ -1,8 +1,9 @@
 grim
-azote
 greybird-dark-theme
 
 kitty
+gvim
+azote
 
 lazygit
 neovim
