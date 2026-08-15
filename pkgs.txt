@@ -1,5 +1,6 @@
 grim
-greybird-dark-theme
+plasma-breeze
+nwg-look
 
 kitty
 gvim
