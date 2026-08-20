@@ -2,7 +2,8 @@ vim.pack.add({
     "https://github.com/rebelot/kanagawa.nvim",
     "https://github.com/folke/tokyonight.nvim",
     "https://github.com/olivercederborg/poimandres.nvim",
-    "https://github.com/ribru17/bamboo.nvim"
+    "https://github.com/ribru17/bamboo.nvim",
+    "https://github.com/miikanissi/modus-themes.nvim"
 }, { confirm = false })
 
 local theme=vim.cmd.colorscheme
@@ -21,4 +22,7 @@ local theme=vim.cmd.colorscheme
 --theme "poimandres"
 
 --theme "bamboo"
+
+--theme "modus_operandi"
+--theme "modus_vivendi"
 
