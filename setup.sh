@@ -10,8 +10,13 @@ xargs -a "$DOTFILES_PATH/pkgs.txt" sudo dnf install -y
 # Stow dotfiles
 stow --target="$HOME" --dir="$DOTFILES_PATH" --dotfiles modules
 
-# Download wallpaper
-wget -nc -P "$HOME/Pictures" "https://w.wallhaven.cc/full/je/wallhaven-jevqpy.png"
+# Download wallpapers
+WALLPAPERS=(
+    "https://w.wallhaven.cc/full/gp/wallhaven-gpj7mq.jpg"
+    "https://w.wallhaven.cc/full/je/wallhaven-jevqpy.png"
+    "https://w.wallhaven.cc/full/5w/wallhaven-5wmm57.jpg"
+)
+wget -nc -P "$HOME/Pictures" "${WALLPAPERS[@]}"
 
 # Download JetBrainsMono nerd font
 FONT_PATH="$HOME/.local/share/fonts"
