@@ -1,0 +1,85 @@
+[
+  // Window's navigation
+  {
+    "context": "Dock || Terminal || Editor",
+    "bindings": {
+      // Window's motions
+      "ctrl-h": "workspace::ActivatePaneLeft",
+      "ctrl-l": "workspace::ActivatePaneRight",
+      "ctrl-k": "workspace::ActivatePaneUp",
+      "ctrl-j": "workspace::ActivatePaneDown",
+      "ctrl-t": "terminal_panel::Toggle",
+    },
+  },
+  // Empty pane, set of keybindings that are available when there is no active editor
+  {
+    "context": "EmptyPane || SharedScreen",
+    "bindings": {
+      // Open file finder
+      "space f": "file_finder::Toggle",
+      // New file
+      "space t n": "workspace::NewFile",
+    },
+  },
+  {
+    "context": "Editor && VimControl && !VimWaiting && !menu",
+    "bindings": {
+      // Refactoring
+      // Git
+      "space g h d": "editor::ExpandAllDiffHunks",
+      "space g h D": "git::Diff",
+      "space g h r": "git::Restore",
+      "space g h R": "git::RestoreFile",
+      // Open markdown preview
+      "space m p": "markdown::OpenPreview",
+      "space m P": "markdown::OpenPreviewToTheSide",
+      // Search word under cursor in current pane
+      "space s w": "buffer_search::Deploy",
+      // Search word under cursor in all panes
+      "space s W": "pane::DeploySearch",
+      // Tab things. Almost as good as harpoon.
+      "space 1": ["pane::ActivateItem", 0],
+      "space 2": ["pane::ActivateItem", 1],
+      "space 3": ["pane::ActivateItem", 2],
+      "space 4": ["pane::ActivateItem", 3],
+      "space 5": ["pane::ActivateItem", 4],
+      "space 6": ["pane::ActivateItem", 5],
+      "space 7": ["pane::ActivateItem", 6],
+      "space 8": ["pane::ActivateItem", 7],
+      "space 9": ["pane::ActivateItem", 8],
+      "space 0": "pane::ActivateLastItem",
+      "shift-l": "pane::ActivateNextItem",
+      "shift-h": "pane::ActivatePreviousItem",
+      "space ,": "tab_switcher::Toggle",
+      // New file
+      "space t n": "workspace::NewFile",
+      // Search
+      "space /": "workspace::NewSearch",
+      // LSP & Code actions
+      "space c a": "editor::ToggleCodeActions",
+      "space s d": "diagnostics::Deploy",
+      "space s s": "outline::Toggle",
+      "space r n ": "editor::Rename",
+      // Telescope
+      "space f": "file_finder::Toggle",
+      // Terminal
+      "ctrl-t": "terminal_panel::Toggle",
+      // Windows management
+      "space s h": "pane::SplitDown",
+      "space s v": "pane::SplitRight",
+      // Jump to hunks
+      "] h": "editor::GoToHunk",
+      "[ h": "editor::GoToPreviousHunk",
+      "] c": "editor::GoToHunk",
+      "[ c": "editor::GoToPreviousHunk",
+      // Jump to diagnostic
+      "] d": "editor::GoToDiagnostic",
+      "[ d": "editor::GoToPreviousDiagnostic",
+      "] e": "editor::GoToDiagnostic",
+      "[ e": "editor::GoToPreviousDiagnostic",
+      // Excerpts
+      "] q": "editor::MoveToStartOfNextExcerpt",
+      "[ q": "editor::MoveToStartOfExcerpt",
+    },
+  },
+]
