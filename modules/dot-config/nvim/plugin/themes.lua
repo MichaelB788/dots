@@ -1,9 +1,7 @@
 vim.pack.add({
-    "https://github.com/rebelot/kanagawa.nvim",
-    "https://github.com/folke/tokyonight.nvim",
-    "https://github.com/olivercederborg/poimandres.nvim",
-    "https://github.com/ribru17/bamboo.nvim",
-    "https://github.com/miikanissi/modus-themes.nvim"
+  "https://github.com/rebelot/kanagawa.nvim",
+  "https://github.com/folke/tokyonight.nvim",
+  "https://github.com/catppuccin/nvim",
 }, { confirm = false })
 
 local theme=vim.cmd.colorscheme
@@ -19,10 +17,7 @@ local theme=vim.cmd.colorscheme
 --theme "tokyonight-night"
 --theme "tokyonight-storm"
 
---theme "poimandres"
-
---theme "bamboo"
-
---theme "modus_operandi"
---theme "modus_vivendi"
-
+--theme "catppuccin-latte"
+--theme "catppuccin-frappe"
+--theme "catppuccin-macchiato"
+--theme "catppuccin-mocha"
