@@ -1,3 +1,43 @@
-These are my dotfiles for Fedora Sway edition.
+# Fedora Dotfiles
 
-Sets up all the packages and tools I would need to use in my day-to-day.
+These are my dotfiles for Fedora.
+
+## Assumptions
+
+1. A clean install of Fedora Sway Edition
+2. Bash shell
+
+## Installation
+
+Add the Terra repo and then run `setup.sh`
+
+# Post-Install Notes
+
+## DNF Config
+
+Go to `/etc/dnf/dnf.conf/` and put this under `[main]` section
+
+```bash
+max_parallel_downloads=10
+defaultyes=True
+keepcache=True
+```
+
+## Installing Codecs
+
+This will install RPM Fusion and swap the open source codecs with the propreitary ones.
+
+```bash
+sudo dnf install https://mirrors.rpmfusion.org/free/fedora/rpmfusion-free-release-$(rpm -E %fedora).noarch.rpm https://mirrors.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-$(rpm -E %fedora).noarch.rpm
+sudo dnf swap ffmpeg-free ffmpeg --allowerasing
+sudo dnf group upgrade multimedia
+sudo dnf group upgrade core
+```
+
+## Terra Repo
+
+Contains additional packages that aren't normally in the normal repos, namely `lazygit` and `zed`.
+
+```bash
+sudo dnf install --nogpgcheck --repofrompath 'terra,https://repos.fyralabs.com/terra$releasever' terra-release
+```
