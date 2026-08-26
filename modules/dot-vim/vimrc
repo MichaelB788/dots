@@ -1,0 +1,53 @@
+" === Plugins ===
+
+let data_dir = has('nvim') ? stdpath('data') . '/site' : '~/.vim'
+if empty(glob(data_dir . '/autoload/plug.vim'))
+  silent execute '!curl -fLo '.data_dir.'/autoload/plug.vim --create-dirs  https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
+  autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
+endif
+
+call plug#begin()
+
+" List your plugins here
+Plug 'tpope/vim-sensible'
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+Plug 'junegunn/fzf.vim'
+
+call plug#end()
+
+" === Options ===
+
+let mapleader = " "
+
+filetype plugin indent on
+syntax enable 
+
+set noswapfile
+set incsearch
+set clipboard=unnamedplus
+set textwidth=80
+
+set tabstop=2
+set shiftwidth=2 smarttab
+set expandtab
+set smartindent
+
+set scrolloff=8
+set number
+set relativenumber
+set linebreak
+
+set backspace=indent,eol,start
+
+set splitright
+set splitbelow
+
+" === Keymaps ===
+
+nnoremap <leader>tn <cmd>tabnew<cr>
+
+nnoremap <S-l> gt
+nnoremap <S-h> gT
+
+nnoremap <leader>e <cmd>Ex<CR> 
+nnoremap <leader>f <cmd>FZF<CR>
