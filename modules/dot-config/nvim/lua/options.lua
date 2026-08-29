@@ -94,11 +94,6 @@ vim.o.wrap = false
 vim.o.linebreak = true
 vim.o.backspace = "indent,eol,start"
 
-vim.o.tabstop = 2
-vim.o.shiftwidth = 2
-vim.o.softtabstop = 2
-vim.o.expandtab = true
-
 -- Diagnostic Config
 --  See `:help vim.diagnostic.Opts`
 vim.diagnostic.config {
@@ -122,3 +117,10 @@ vim.diagnostic.config {
         end,
     },
 }
+
+vim.cmd [[
+  highlight Normal guibg=none
+  highlight NonText guibg=none
+  highlight Normal ctermbg=none
+  highlight NonText ctermbg=none
+]]
