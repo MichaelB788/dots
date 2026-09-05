@@ -2,7 +2,6 @@ vim.pack.add({
   "https://github.com/windwp/nvim-autopairs",
   "https://github.com/hrsh7th/nvim-cmp",
   "https://github.com/rafamadriz/friendly-snippets",
-  "https://github.com/garymjr/nvim-snippets",
 }, { confirm = false })
 
 require("nvim-autopairs").setup()
