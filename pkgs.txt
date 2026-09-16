@@ -4,7 +4,9 @@ gnome-shell-extension-dash-to-dock
 gnome-shell-extension-status-icon
 gnome-shell-extension-caffeine
 
+codium
 kitty
+
 lazygit
 neovim
 vim-enhanced
