@@ -1,11 +1,6 @@
 # Fedora Dotfiles
 
-These are my dotfiles for Fedora.
-
-## Assumptions
-
-1. A clean install of Fedora Sway Edition
-2. Bash shell
+These are my dotfiles for Fedora Workstation.
 
 ## Installation
 
