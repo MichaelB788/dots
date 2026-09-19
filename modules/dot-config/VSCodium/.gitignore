@@ -1,0 +1,17 @@
+*Cookies*
+*Cache*
+*Storage*
+*State*
+*Tokens*
+*Diction*
+Backups/
+Crashpad/
+blob_storage/
+DIPS
+Preferences
+TransportSecurity
+languagepacks.json
+machineid
+History/
+snippets/
+chatLanguageModels.json
