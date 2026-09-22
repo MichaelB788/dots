@@ -1,4 +1,7 @@
 {
+    "terminal.integrated.fontSize": 17,
+    "editor.lineHeight": 1.5,
+    "editor.formatOnSave": true,
     "workbench.colorTheme": "Dark Modern",
     "editor.fontSize": 17,
     "chat.disableAIFeatures": true,
