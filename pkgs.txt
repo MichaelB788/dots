@@ -1,10 +1,11 @@
 grim
-greybird-dark-theme
-nwg-look
+plasma-breeze
 
+zed
 kitty
 gvim
 azote
+nwg-look
 
 lazygit
 neovim
