@@ -15,6 +15,9 @@ WALLPAPERS=(
     "https://w.wallhaven.cc/full/gp/wallhaven-gpj7mq.jpg"
     "https://w.wallhaven.cc/full/je/wallhaven-jevqpy.png"
     "https://w.wallhaven.cc/full/5w/wallhaven-5wmm57.jpg"
+    "https://w.wallhaven.cc/full/xe/wallhaven-xe9g8l.jpg"
+    "https://w.wallhaven.cc/full/3q/wallhaven-3qw65d.png"
+    "https://w.wallhaven.cc/full/6l/wallhaven-6ly5g6.jpg"
 )
 wget -nc -P "$HOME/Pictures" "${WALLPAPERS[@]}"
 

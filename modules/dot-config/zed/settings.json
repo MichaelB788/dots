@@ -7,6 +7,12 @@
 // custom settings, run `zed: open default settings` from the
 // command palette (cmd-shift-p / ctrl-shift-p)
 {
+  "project_panel": {
+    "dock": "left",
+  },
+  "git_panel": {
+    "dock": "left",
+  },
   "git": {
     "inline_blame": {
       "enabled": false,
@@ -38,7 +44,7 @@
     "dark": "Zed (Default)",
   },
   "base_keymap": "JetBrains",
-  "ui_font_size": 17,
-  "buffer_font_size": 17,
+  "ui_font_size": 18,
+  "buffer_font_size": 18,
   "format_on_save": "on",
 }
