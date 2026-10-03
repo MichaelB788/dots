@@ -2,6 +2,11 @@
 
 set -euo pipefail
 
+if ! command -v dnf >/dev/null; then
+  echo "Not a Fedora based system."
+  exit 1
+fi
+
 DOTFILES_PATH=$(cd -- "$(dirname -- "${BASH_SOURCE[0]}")" >/dev/null && pwd)
 
 # Download packages
