@@ -1,10 +1,11 @@
 discover
 flatpak
+wl-clipboard
 
 zed
 kitty
 qbittorrent
-wireshark
+wireshark-qt
 virt-manager
 
 lazygit
