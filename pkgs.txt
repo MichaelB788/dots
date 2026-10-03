@@ -1,17 +1,16 @@
-grim
-plasma-breeze
+discover
+flatpak
 
 zed
 kitty
-gvim
-azote
-nwg-look
+qbittorrent
+wireshark
+virt-manager
 
 lazygit
 neovim
-vim-enhanced
+vim
 
-fastfetch
 fzf
 ripgrep
 stow
@@ -19,19 +18,19 @@ curl
 wget
 unzip
 bash-completion
+fastfetch
 
+base-devel
 clang
-clang-tools-extra
 gcc
-g++
 cmake
 ninja
 valgrind
 gdb
-SDL3-devel
-SDL3_image-devel
-SDL3_ttf-devel
+sdl3
+sdl3_image
+sdl3_ttf
 
 rustup
 
-python3-lsp-server
+python-lsp-server

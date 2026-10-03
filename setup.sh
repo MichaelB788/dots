@@ -2,26 +2,24 @@
 
 set -euo pipefail
 
-if ! command -v dnf >/dev/null; then
-  echo "Not a Fedora based system."
+if ! command -v pacman >/dev/null; then
+  echo "Not a Arch based system."
   exit 1
 fi
 
 DOTFILES_PATH=$(cd -- "$(dirname -- "${BASH_SOURCE[0]}")" >/dev/null && pwd)
 
 # Download packages
-xargs -a "$DOTFILES_PATH/pkgs.txt" sudo dnf install -y
+xargs -a "$DOTFILES_PATH/pkgs.txt" sudo pacman -S
 
 # Stow dotfiles
 stow --target="$HOME" --dir="$DOTFILES_PATH" --dotfiles modules
 
 # Download wallpapers
 WALLPAPERS=(
-    "https://w.wallhaven.cc/full/gp/wallhaven-gpj7mq.jpg"
     "https://w.wallhaven.cc/full/je/wallhaven-jevqpy.png"
     "https://w.wallhaven.cc/full/5w/wallhaven-5wmm57.jpg"
     "https://w.wallhaven.cc/full/xe/wallhaven-xe9g8l.jpg"
-    "https://w.wallhaven.cc/full/3q/wallhaven-3qw65d.png"
     "https://w.wallhaven.cc/full/6l/wallhaven-6ly5g6.jpg"
 )
 wget -nc -P "$HOME/Pictures" "${WALLPAPERS[@]}"
