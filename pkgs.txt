@@ -11,6 +11,7 @@ virt-manager
 lazygit
 neovim
 vim
+tree-sitter-cli
 
 fzf
 ripgrep
