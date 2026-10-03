@@ -13,6 +13,10 @@ neovim
 vim
 tree-sitter-cli
 
+eza
+bat
+fd
+btop
 fzf
 ripgrep
 stow

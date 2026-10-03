@@ -1,0 +1,15 @@
+#
+# ~/.bashrc
+#
+
+# If not running interactively, don't do anything
+[[ $- != *i* ]] && return
+
+alias ls='eza'
+alias ll='eza -l'
+alias grep='ripgrep'
+alias find='fd'
+alias cat='bat'
+alias top='btop'
+
+PS1='[\u@\h \W]\$ '
