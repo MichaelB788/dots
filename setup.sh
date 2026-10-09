@@ -8,26 +8,17 @@ if ! command -v dnf >/dev/null; then
 fi
 
 DOTFILES_PATH=$(cd -- "$(dirname -- "${BASH_SOURCE[0]}")" >/dev/null && pwd)
-
-# Download packages
-xargs -a "$DOTFILES_PATH/pkgs.txt" sudo dnf install -y
-
-# Stow dotfiles
-stow --target="$HOME" --dir="$DOTFILES_PATH" --dotfiles modules
-
-# Download wallpapers
+FONT_PATH="$HOME/.local/share/fonts"
 WALLPAPERS=(
-    "https://w.wallhaven.cc/full/gp/wallhaven-gpj7mq.jpg"
-    "https://w.wallhaven.cc/full/je/wallhaven-jevqpy.png"
-    "https://w.wallhaven.cc/full/5w/wallhaven-5wmm57.jpg"
     "https://w.wallhaven.cc/full/xe/wallhaven-xe9g8l.jpg"
-    "https://w.wallhaven.cc/full/3q/wallhaven-3qw65d.png"
     "https://w.wallhaven.cc/full/6l/wallhaven-6ly5g6.jpg"
+    "https://w.wallhaven.cc/full/wy/wallhaven-wylxpx.png"
 )
+
+xargs -a "$DOTFILES_PATH/pkgs.txt" sudo dnf install -y
+stow --target="$HOME" --dir="$DOTFILES_PATH" --dotfiles modules
 wget -nc -P "$HOME/Pictures" "${WALLPAPERS[@]}"
 
-# Download JetBrainsMono nerd font
-FONT_PATH="$HOME/.local/share/fonts"
 if [ ! -d "$FONT_PATH/JetBrainsMono" ]; then
   wget -nc -P "$FONT_PATH" "https://github.com/ryanoasis/nerd-fonts/releases/download/v3.4.0/JetBrainsMono.zip"
   unzip "$FONT_PATH/JetBrainsMono.zip" -d "$FONT_PATH/JetBrainsMono"

@@ -2,20 +2,11 @@
 
 These are my dotfiles for Fedora.
 
-## Assumptions
-
-1. A clean install of Fedora Sway Edition
-2. Bash shell
-
-## Installation
-
-Add the Terra repo and then run `setup.sh`
-
-# Post-Install Notes
+# Notes to Self
 
 ## DNF Config
 
-Go to `/etc/dnf/dnf.conf/` and put this under `[main]` section
+Go to `/etc/dnf/dnf.conf/` and put this under `[main]`
 
 ```bash
 max_parallel_downloads=10
@@ -36,7 +27,7 @@ sudo dnf group upgrade core
 
 ## Terra Repo
 
-Contains additional packages that aren't normally in the normal repos, namely `lazygit` and `zed`.
+Add the terra repo to install stuff like `lazygit`.
 
 ```bash
 sudo dnf install --nogpgcheck --repofrompath 'terra,https://repos.fyralabs.com/terra$releasever' terra-release

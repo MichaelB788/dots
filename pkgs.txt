@@ -1,11 +1,13 @@
-grim
-plasma-breeze
+gnome-extensions-app
+gnome-tweaks
+gnome-shell-extension-caffeine
 
 zed
 kitty
-gvim
-azote
-nwg-look
+wireshark
+chromium
+qbittorrent
+virt-manager
 
 lazygit
 neovim
