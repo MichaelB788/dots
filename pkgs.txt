@@ -12,8 +12,12 @@ virt-manager
 lazygit
 neovim
 vim-enhanced
+tree-sitter-cli
 
-fastfetch
+eza
+bat
+fd
+btop
 fzf
 ripgrep
 stow
@@ -21,6 +25,7 @@ curl
 wget
 unzip
 bash-completion
+fastfetch
 
 clang
 clang-tools-extra
