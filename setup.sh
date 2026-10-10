@@ -15,6 +15,8 @@ WALLPAPERS=(
     "https://w.wallhaven.cc/full/wy/wallhaven-wylxpx.png"
 )
 
+mkdir -p "$HOME/.config"
+rm -f "$HOME/.bashrc"
 xargs -a "$DOTFILES_PATH/pkgs.txt" sudo dnf install -y
 stow --target="$HOME" --dir="$DOTFILES_PATH" --dotfiles modules
 wget -nc -P "$HOME/Pictures" "${WALLPAPERS[@]}"
