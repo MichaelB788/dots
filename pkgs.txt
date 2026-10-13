@@ -1,6 +1,6 @@
 zed
 kitty
-wireshark
+wireshark-qt
 chromium
 qbittorrent
 virt-manager
@@ -21,12 +21,12 @@ curl
 wget
 unzip
 bash-completion
+wl-clipboard
 fastfetch
 
+base-devel
 clang
-clang-tools-extra
 gcc
-g++
 cmake
 ninja
 valgrind
@@ -37,4 +37,4 @@ sdl3_ttf
 
 rustup
 
-python3-lsp-server
+python-lsp-server
