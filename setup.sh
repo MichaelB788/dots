@@ -2,8 +2,8 @@
 
 set -euo pipefail
 
-if ! command -v dnf >/dev/null; then
-  echo "Not a Fedora based system."
+if ! command -v pacman >/dev/null; then
+  echo "Not an Arch based system."
   exit 1
 fi
 
@@ -17,7 +17,7 @@ WALLPAPERS=(
 
 mkdir -p "$HOME/.config"
 rm -f "$HOME/.bashrc"
-xargs -a "$DOTFILES_PATH/pkgs.txt" sudo dnf install -y
+xargs -a "$DOTFILES_PATH/pkgs.txt" sudo pacman -S
 stow --target="$HOME" --dir="$DOTFILES_PATH" --dotfiles modules
 wget -nc -P "$HOME/Pictures" "${WALLPAPERS[@]}"
 

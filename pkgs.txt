@@ -1,7 +1,3 @@
-gnome-extensions-app
-gnome-tweaks
-gnome-shell-extension-caffeine
-
 zed
 kitty
 wireshark
@@ -11,7 +7,7 @@ virt-manager
 
 lazygit
 neovim
-vim-enhanced
+vim
 tree-sitter-cli
 
 eza
@@ -35,9 +31,9 @@ cmake
 ninja
 valgrind
 gdb
-SDL3-devel
-SDL3_image-devel
-SDL3_ttf-devel
+sdl3
+sdl3_image
+sdl3_ttf
 
 rustup
 
