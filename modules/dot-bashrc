@@ -19,8 +19,3 @@ alias ls='eza -lh'
 alias la='eza -alh'
 alias cat='bat'
 alias top='btop'
-
-alias pacup='sudo pacman -Syu'
-alias pacin='sudo pacman -S'
-alias pacse='pacman -Ss'
-alias pacrm='sudo pacman -Rns'

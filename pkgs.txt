@@ -10,7 +10,9 @@ vim
 lazygit
 tree-sitter-cli
 ttf-jetbrains-mono-nerd
+dolphin
 
+man
 eza
 bat
 fd
