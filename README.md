@@ -1,3 +1,3 @@
-# EndeavourOS Dotfiles
+# dots
 
-These are my dotfiles for EndeavourOS.
+These are my dotfiles for arch.

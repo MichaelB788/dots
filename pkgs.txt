@@ -5,10 +5,11 @@ chromium
 qbittorrent
 virt-manager
 
-lazygit
 neovim
 vim
+lazygit
 tree-sitter-cli
+ttf-jetbrains-mono-nerd
 
 eza
 bat
