@@ -1,6 +1,5 @@
-zed
 kitty
-wireshark-qt
+wireshark
 chromium
 qbittorrent
 virt-manager
@@ -9,10 +8,8 @@ neovim
 vim
 lazygit
 tree-sitter-cli
-ttf-jetbrains-mono-nerd
-dolphin
+jetbrains-mono-fonts
 
-man
 eza
 bat
 fd
@@ -23,20 +20,18 @@ stow
 curl
 wget
 unzip
-bash-completion
 wl-clipboard
 fastfetch
 
-base-devel
 clang
 gcc
 cmake
 ninja
 valgrind
 gdb
-sdl3
-sdl3_image
-sdl3_ttf
+SDL3-devel
+SDL3_image-devel
+SDL3_ttf-devel
 
 rustup
 
