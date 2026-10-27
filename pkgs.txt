@@ -25,6 +25,7 @@ wl-clipboard
 fastfetch
 
 clang
+clang-tools-extra
 gcc
 cmake
 ninja
