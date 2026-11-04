@@ -11,7 +11,7 @@ DOTFILES_PATH=$(cd -- "$(dirname -- "${BASH_SOURCE[0]}")" >/dev/null && pwd)
 
 DNF_PKGS=(
   # sway
-  sway wmenu grim swaylock swaybg mako slurp jetbrains-mono-fonts wl-clipboard
+  sway wmenu grim swaylock swayidle swaybg mako slurp jetbrains-mono-fonts wl-clipboard
   xdg-desktop-portal-wlr plasma-breeze
 
   # gui

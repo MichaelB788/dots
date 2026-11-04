@@ -1,3 +1,10 @@
+#
+# System stuff
+#
+
+# Lock before entering suspending the system
+exec swayidle -w before-sleep 'swaylock -f'
+
 ### Input configuration
 #
 # Example configuration:
@@ -16,9 +23,6 @@
 output DP-1 resolution 1600x900 position 0 0
 output HDMI-A-1 position 1600 0
 exec ~/.azotebg # use azote to set the wallpaper
-
-# Drag floating windows by holding down $mod and left mouse button.
-floating_modifier $mod normal
 
 #
 # Appearance
