@@ -34,11 +34,22 @@ DNF_PKGS=(
   python-lsp-server
 )
 
-sudo dnf install https://mirrors.rpmfusion.org/free/fedora/rpmfusion-free-release-$(rpm -E %fedora).noarch.rpm https://mirrors.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-$(rpm -E %fedora).noarch.rpm -y
-sudo dnf group upgrade multimedia -y
-sudo dnf swap ffmpeg-free ffmpeg --allowerasing -y
-sudo dnf group upgrade core -y
-sudo dnf install -y --nogpgcheck --repofrompath 'terra,https://repos.fyralabs.com/terra$releasever' terra-release
+install_codecs() {
+  sudo dnf install https://mirrors.rpmfusion.org/free/fedora/rpmfusion-free-release-$(rpm -E %fedora).noarch.rpm https://mirrors.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-$(rpm -E %fedora).noarch.rpm -y
+  sudo dnf swap ffmpeg-free ffmpeg --allowerasing -y
+  sudo dnf install -y --nogpgcheck --repofrompath 'terra,https://repos.fyralabs.com/terra$releasever' terra-release
+}
 
-xargs -a "$DOTFILES_PATH/pkgs.txt" sudo dnf install -y
-stow --target="$HOME" --dir="$DOTFILES_PATH" --dotfiles modules
+setup_home() {
+  mkdir -p "$HOME/repos/"
+  sudo dnf install -y "${DNF_PKGS[@]}"
+  stow --target="$HOME" --dir="$DOTFILES_PATH" --dotfiles modules
+}
+
+read -p "Install multimedia codecs? [y/N] " -n 1 -r
+echo
+if [[ $REPLY =~ ^[Yy]$ ]]; then
+  install_codecs
+fi
+
+setup_home
