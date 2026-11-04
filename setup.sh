@@ -2,8 +2,8 @@
 
 set -euo pipefail
 
-if ! command -v pacman >/dev/null; then
-  echo "pacman not found"
+if ! command -v dnf >/dev/null; then
+  echo "dnf not found"
   exit 1
 fi
 

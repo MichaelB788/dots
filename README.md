@@ -1,3 +1,3 @@
 # dots
 
-These are my dotfiles for Arch Linux.
+These are my dotfiles for Fedora Linux.
