@@ -15,13 +15,13 @@ DNF_PKGS=(
   xdg-desktop-portal-wlr plasma-breeze
 
   # gui
-  kitty azote nwg-look wireshark firefox qbittorrent virt-manager
+  kitty azote nwg-look wireshark firefox qbittorrent virt-manager chromium
 
   # tui
   lazygit neovim
 
   # terminal utils
-  fastfetch fzf ripgrep stow curl wget unzip
+  fastfetch fzf ripgrep stow curl wget unzip btop tree-sitter-cli
 
   # c/c++
   clang clang-tools-extra gcc g++ cmake ninja SDL3-devel SDL3_image-devel
