@@ -15,11 +15,11 @@ DNF_PKGS=(
   wl-clipboard xdg-desktop-portal-wlr thunar-volman gvfs
 
   # gui
-  kitty azote nwg-look wireshark-qt firefox qbittorrent virt-manager chromium
-  pavucontrol thunar
+  kitty azote nwg-look wireshark-qt firefox virt-manager chromium
+  thunar
 
   # tui
-  lazygit neovim
+  lazygit neovim bluetui wiremix rtorrent
 
   # terminal utils
   fastfetch fzf ripgrep stow curl wget unzip btop tree-sitter-cli man less
