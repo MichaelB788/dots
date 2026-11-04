@@ -2,8 +2,8 @@
 
 set -euo pipefail
 
-if ! command -v dnf >/dev/null; then
-  echo "Did not find dnf"
+if ! command -v pacman >/dev/null; then
+  echo "pacman not found"
   exit 1
 fi
 
@@ -11,27 +11,28 @@ DOTFILES_PATH=$(cd -- "$(dirname -- "${BASH_SOURCE[0]}")" >/dev/null && pwd)
 
 DNF_PKGS=(
   # sway
-  sway wmenu grim swaylock swayidle swaybg mako slurp jetbrains-mono-fonts wl-clipboard
-  xdg-desktop-portal-wlr plasma-breeze
+  sway wmenu grim swaylock swayidle swaybg mako slurp ttf-jetbrains-mono-nerd
+  wl-clipboard xdg-desktop-portal-wlr thunar-volman gvfs
 
   # gui
-  kitty azote nwg-look wireshark firefox qbittorrent virt-manager chromium
+  kitty azote nwg-look wireshark-qt firefox qbittorrent virt-manager chromium
+  pavucontrol thunar
 
   # tui
   lazygit neovim
 
   # terminal utils
-  fastfetch fzf ripgrep stow curl wget unzip btop tree-sitter-cli
+  fastfetch fzf ripgrep stow curl wget unzip btop tree-sitter-cli man less
+  bash-completion
 
   # c/c++
-  clang clang-tools-extra gcc g++ cmake ninja SDL3-devel SDL3_image-devel
-  SDL3_ttf-devel
+  clang gcc cmake ninja sdl3 sdl3_image sdl3_ttf
 
   # rust
   rustup
 
   # python
-  python3-lsp-server
+  python-lsp-server
 )
 
 WALLPAPERS=(
@@ -40,23 +41,7 @@ WALLPAPERS=(
     "https://w.wallhaven.cc/full/6l/wallhaven-6ly5g6.jpg"
 )
 
-install_codecs() {
-  sudo dnf install https://mirrors.rpmfusion.org/free/fedora/rpmfusion-free-release-$(rpm -E %fedora).noarch.rpm https://mirrors.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-$(rpm -E %fedora).noarch.rpm -y
-  sudo dnf swap ffmpeg-free ffmpeg --allowerasing -y
-  sudo dnf install -y --nogpgcheck --repofrompath 'terra,https://repos.fyralabs.com/terra$releasever' terra-release
-}
-
-setup_home() {
-  mkdir -p "$HOME"/{.config,img,repos}
-  sudo dnf install -y "${DNF_PKGS[@]}"
-  stow --target="$HOME" --dir="$DOTFILES_PATH" --dotfiles modules
-  wget -nc -P "$HOME/img" "${WALLPAPERS[@]}"
-}
-
-read -p "Install media codecs? [y/N] " -n 1 -r
-echo
-if [[ $REPLY =~ ^[Yy]$ ]]; then
-  install_codecs
-fi
-
-setup_home
+mkdir -p "$HOME"/{.config,img,repos}
+sudo pacman -S "${DNF_PKGS[@]}"
+stow --target="$HOME" --dir="$DOTFILES_PATH" --dotfiles modules
+wget -nc -P "$HOME/img" "${WALLPAPERS[@]}"
