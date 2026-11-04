@@ -42,16 +42,15 @@ WALLPAPERS=(
 
 install_codecs() {
   sudo dnf install https://mirrors.rpmfusion.org/free/fedora/rpmfusion-free-release-$(rpm -E %fedora).noarch.rpm https://mirrors.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-$(rpm -E %fedora).noarch.rpm -y
-  sudo dnf group upgrade multimedia -y
   sudo dnf swap ffmpeg-free ffmpeg --allowerasing -y
-  sudo dnf group upgrade core -y
   sudo dnf install -y --nogpgcheck --repofrompath 'terra,https://repos.fyralabs.com/terra$releasever' terra-release
 }
 
 setup_home() {
+  mkdir -p "$HOME"/{.config,img,repos}
   sudo dnf install -y "${DNF_PKGS[@]}"
   stow --target="$HOME" --dir="$DOTFILES_PATH" --dotfiles modules
-  wget -nc -P "$HOME/Pictures" "${WALLPAPERS[@]}"
+  wget -nc -P "$HOME/img" "${WALLPAPERS[@]}"
 }
 
 read -p "Install media codecs? [y/N] " -n 1 -r
