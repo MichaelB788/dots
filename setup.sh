@@ -10,23 +10,22 @@ fi
 DOTFILES_PATH=$(cd -- "$(dirname -- "${BASH_SOURCE[0]}")" >/dev/null && pwd)
 
 DNF_PKGS=(
-  # sway
-  sway wmenu grim swaylock swayidle swaybg mako slurp ttf-jetbrains-mono-nerd
-  wl-clipboard xdg-desktop-portal-wlr thunar-volman gvfs
+  # system
+  jetbrains-mono-fonts
 
   # gui
-  kitty azote nwg-look wireshark-qt firefox virt-manager chromium
-  thunar
+  kitty chromium virt-manager
 
   # tui
-  lazygit neovim bluetui wiremix rtorrent
+  neovim lazygit
 
   # terminal utils
-  fastfetch fzf ripgrep stow curl wget unzip btop tree-sitter-cli man less
-  bash-completion
+  bat fd btop fzf ripgrep stow curl wget unzip wl-clipboard fastfetch
+  tree-sitter-cli
 
   # c/c++
-  clang gcc cmake ninja sdl3 sdl3_image sdl3_ttf
+  clang clang-tools-extra gcc cmake ninja valgrind gdb SDL3-devel
+  SDL3_image-devel SDL3_ttf-devel
 
   # rust
   rustup
@@ -35,13 +34,22 @@ DNF_PKGS=(
   python-lsp-server
 )
 
-WALLPAPERS=(
-    "https://w.wallhaven.cc/full/5w/wallhaven-5wmm57.jpg"
-    "https://w.wallhaven.cc/full/xe/wallhaven-xe9g8l.jpg"
-    "https://w.wallhaven.cc/full/6l/wallhaven-6ly5g6.jpg"
-)
+install_codecs() {
+  sudo dnf install https://mirrors.rpmfusion.org/free/fedora/rpmfusion-free-release-$(rpm -E %fedora).noarch.rpm https://mirrors.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-$(rpm -E %fedora).noarch.rpm -y
+  sudo dnf swap ffmpeg-free ffmpeg --allowerasing -y
+  sudo dnf install -y --nogpgcheck --repofrompath 'terra,https://repos.fyralabs.com/terra$releasever' terra-release
+}
 
-mkdir -p "$HOME"/{.config,img,repos}
-sudo pacman -S "${DNF_PKGS[@]}"
-stow --target="$HOME" --dir="$DOTFILES_PATH" --dotfiles modules
-wget -nc -P "$HOME/img" "${WALLPAPERS[@]}"
+setup_home() {
+  mkdir -p "$HOME/repos/"
+  sudo dnf install -y "${DNF_PKGS[@]}"
+  stow --target="$HOME" --dir="$DOTFILES_PATH" --dotfiles modules
+}
+
+read -p "Install multimedia codecs? [y/N] " -n 1 -r
+echo
+if [[ $REPLY =~ ^[Yy]$ ]]; then
+  install_codecs
+fi
+
+setup_home
