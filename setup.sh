@@ -9,6 +9,31 @@ fi
 
 DOTFILES_PATH=$(cd -- "$(dirname -- "${BASH_SOURCE[0]}")" >/dev/null && pwd)
 
+DNF_PKGS=(
+  # system
+  jetbrains-mono-fonts
+
+  # gui
+  kitty chromium virt-manager
+
+  # tui
+  neovim lazygit
+
+  # terminal utils
+  bat fd btop fzf ripgrep stow curl wget unzip wl-clipboard fastfetch
+  tree-sitter-cli
+
+  # c/c++
+  clang clang-tools-extra gcc cmake ninja valgrind gdb SDL3-devel
+  SDL3_image-devel SDL3_ttf-devel
+
+  # rust
+  rustup
+
+  # python
+  python-lsp-server
+)
+
 sudo dnf install https://mirrors.rpmfusion.org/free/fedora/rpmfusion-free-release-$(rpm -E %fedora).noarch.rpm https://mirrors.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-$(rpm -E %fedora).noarch.rpm -y
 sudo dnf group upgrade multimedia -y
 sudo dnf swap ffmpeg-free ffmpeg --allowerasing -y
