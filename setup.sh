@@ -14,7 +14,7 @@ PACMAN_PKGS=(
   ttf-jetbrains-mono-nerd
 
   # gui
-  firefox chromium virt-manager dolphin zed
+  firefox chromium virt-manager dolphin ark zed
 
   # tui
   neovim lazygit
