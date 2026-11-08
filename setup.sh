@@ -11,7 +11,7 @@ DOTFILES_PATH=$(cd -- "$(dirname -- "${BASH_SOURCE[0]}")" >/dev/null && pwd)
 
 PACMAN_PKGS=(
   # system
-  ttf-jetbrains-mono-nerd
+  ttf-jetbrains-mono-nerd qemu-desktop
 
   # gui
   firefox chromium virt-manager dolphin ark zed
@@ -21,7 +21,7 @@ PACMAN_PKGS=(
 
   # terminal utils
   bat less man fd btop fzf ripgrep stow curl wget unzip wl-clipboard fastfetch
-  tree-sitter-cli
+  tree-sitter-cli bash-completion
 
   # c/c++
   clang gcc cmake ninja valgrind gdb sdl3 sdl3_ttf sdl3_image
