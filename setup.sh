@@ -30,7 +30,7 @@ PACMAN_PKGS=(
   rustup
 
   # python
-  python-lsp-server
+  python-lsp-server python-lsp-black
 )
 
 mkdir -p "$HOME/repos/"
