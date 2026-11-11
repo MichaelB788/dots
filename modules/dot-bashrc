@@ -1,0 +1,16 @@
+#
+# ~/.bashrc
+#
+
+# If not running interactively, don't do anything
+[[ $- != *i* ]] && return
+
+alias ls='ls --color=auto'
+alias grep='grep --color=auto'
+alias pacup='sudo pacman -Syu'
+alias pacin='sudo pacman -S'
+alias pacrm='sudo pacman -Rns'
+alias pacse='pacman -Ss'
+alias cat='bat'
+
+PS1='[\u@\h \W]\$ '
