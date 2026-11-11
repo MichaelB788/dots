@@ -128,7 +128,7 @@ install_packages() {
   rustup component add "${rust_pkgs[@]}"
 }
 
-enable_services() {
+enable_daemons() {
   local timers=(fstrim.timer paccache.timer)
   sudo systemctl enable --now "${timers[@]}"
 }
@@ -140,7 +140,7 @@ stow_dots() {
 
 main() {
   install_packages
-  enable_services
+  enable_daemons
   stow_dots
 }
 
