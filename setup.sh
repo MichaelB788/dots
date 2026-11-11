@@ -24,7 +24,7 @@ PACMAN_PKGS=(
   tree-sitter-cli bash-completion
 
   # c/c++
-  clang gcc cmake ninja valgrind gdb sdl3 sdl3_ttf sdl3_image
+  clang gcc cmake make ninja valgrind gdb sdl3 sdl3_ttf sdl3_image
 
   # rust
   rustup
