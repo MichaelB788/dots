@@ -122,4 +122,4 @@ rustup component add "${RUST_PKGS[@]}"
 
 sudo systemctl enable --now fstrim.timer paccache.timer
 
-stow --target="$HOME" --dir=".bashrcS_PATH" --dotfiles modules
+stow --target="$HOME" --dir="$DOTFILES_PATH" --dotfiles modules
