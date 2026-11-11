@@ -6,11 +6,17 @@
 [[ $- != *i* ]] && return
 
 alias ls='ls --color=auto'
+alias ll='ls -lh'
+alias la='ls -a'
 alias grep='grep --color=auto'
+alias cat='bat'
+
 alias pacup='sudo pacman -Syu'
 alias pacin='sudo pacman -S'
 alias pacrm='sudo pacman -Rns'
 alias pacse='pacman -Ss'
-alias cat='bat'
 
 PS1='[\u@\h \W]\$ '
+
+eval "$(starship init bash)"
+eval "$(zoxide init bash)"
