@@ -2,6 +2,8 @@
 
 set -euo pipefail
 
+DOTS_PATH=$(cd -- "$(dirname -- "${BASH_SOURCE[0]}")" >/dev/null && pwd)
+
 if ! command -v pacman >/dev/null; then
   echo "pacman not found"
   exit 1
@@ -134,8 +136,7 @@ enable_daemons() {
 }
 
 stow_dots() {
-  dots_path=$(cd -- "$(dirname -- "${BASH_SOURCE[0]}")" >/dev/null && pwd)
-  stow --target="$HOME" --dir="$dots_path" --dotfiles modules
+  stow --target="$HOME" --dir="$DOTS_PATH" --dotfiles modules
 }
 
 main() {
