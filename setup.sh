@@ -119,11 +119,6 @@ install_packages() {
 
   local rust_pkgs=(rust-analyzer clippy)
 
-  # Back up existing .bashrc before stowing it
-  if [[ -f "$HOME/.bashrc" && ! -L "$HOME/.bashrc" ]]; then
-    mv "$HOME/.bashrc" "$HOME/.bashrc.bak.$(date +%s)"
-  fi
-
   sudo pacman -S --needed "${pacman_pkgs[@]}"
 
   rustup default stable
@@ -136,6 +131,14 @@ enable_daemons() {
 }
 
 stow_dots() {
+  # Make backups
+  local dots_to_backup=(".bashrc" ".gitconfig" ".config/kitty" ".config/nvim" ".config/lazygit")
+  for dot in "${dots_to_backup[@]}"; do
+    if [[ (-f "$HOME/$dot" || -d "$HOME/$dot") && ! -L "$HOME/$dot" ]]; then
+      mv "$HOME/$dot" "$HOME/$dot.bak.$(date +%s)"
+    fi
+  done
+
   stow --target="$HOME" --dir="$DOTS_PATH" --dotfiles modules
 }
 
