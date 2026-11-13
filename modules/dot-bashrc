@@ -19,5 +19,8 @@ alias pacinfo='pacman -Qi'
 
 PS1='[\u@\h \W]\$ '
 
+VCPKG_ROOT="$HOME/vcpkg"
+PATH="$VCPKG_ROOT:$PATH"
+
 eval "$(starship init bash)"
 eval "$(zoxide init bash)"

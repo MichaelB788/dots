@@ -18,28 +18,9 @@ install_packages() {
   local pacman_pkgs=(
     # system
     flatpak
-    base-devel     # base development packages (make, automake, etc.)
     pacman-contrib # tools for pacman
     reflector      # ranks arch linux mirrors
     fwupd          # allows updating firmware
-
-    # libvirt
-    libvirt
-    qemu-desktop
-    edk2-ovmf # UEFI virtualization support
-    dnsmasq
-    iptables-nft
-
-    # kpmcore
-    kpmcore
-    bcachefs-tools
-    dosfstools
-    e2fsprogs
-    exfatprogs
-    f2fs-tools
-    fatresize
-    ntfsprogs
-    xfsprogs
 
     # fonts
     ttf-jetbrains-mono-nerd
@@ -50,7 +31,6 @@ install_packages() {
     # gui
     firefox
     chromium
-    virt-manager
     wireshark-qt
 
     # ark
@@ -66,6 +46,26 @@ install_packages() {
     kio-admin
     kompare
 
+    # partitionmanager
+    partitionmanager
+    kpmcore
+    bcachefs-tools
+    dosfstools
+    e2fsprogs
+    exfatprogs
+    f2fs-tools
+    fatresize
+    ntfsprogs
+    xfsprogs
+
+    # virt-manager
+    virt-manager
+    libvirt
+    qemu-desktop
+    edk2-ovmf
+    dnsmasq
+    iptables-nft
+
     # kde
     filelight
     okular
@@ -74,7 +74,6 @@ install_packages() {
     filelight
     kcalc
     kdeconnect
-    partitionmanager
 
     # tui
     neovim
@@ -92,16 +91,17 @@ install_packages() {
     curl
     wget
     zip
-    zoxide    # smarter cd
-    starship  # shell prompt
-    git-delta # better git diffs
+    zoxide
+    starship
+    git-delta
     github-cli
     wl-clipboard
     fastfetch
     tree-sitter-cli
     bash-completion
 
-    # c/c++
+    # devel packages
+    base-devel
     cmake
     ninja
     bear
@@ -110,8 +110,6 @@ install_packages() {
     gdb
     strace
     perf
-
-    # rust
     rustup
 
     # lsp / formatters / linters
@@ -132,6 +130,15 @@ install_packages() {
 
   rustup default stable
   rustup component add "${rust_pkgs[@]}"
+}
+
+install_extra_devel_tools() {
+  # install vcpkg
+  local vcpkg_path="$HOME/vcpkg"
+  if [[ ! -d "$vcpkg_path" ]]; then
+    git clone https://github.com/microsoft/vcpkg.git "$vcpkg_path"
+  fi
+  (cd "$vcpkg_path" && ./bootstrap-vcpkg.sh -disableMetrics)
 }
 
 add_user_to_groups() {
@@ -163,6 +170,7 @@ stow_dots() {
 
 main() {
   install_packages
+  install_extra_devel_tools
   add_user_to_groups
   enable_daemons
   stow_dots
