@@ -22,24 +22,24 @@ install_packages() {
     pacman-contrib # tools for pacman
     reflector      # ranks arch linux mirrors
     fwupd          # allows updating firmware
-    7zip           # .7z support
-    zip            # .zip support
-    unrar          # .rar support
 
-    # virt manager
+    # libvirt
     libvirt
     qemu-desktop
     edk2-ovmf # UEFI virtualization support
     dnsmasq
+    iptables-nft
 
-    # optional dependecies for kpm core
-    bcachefs-tools # BCacheFS support
-    dosfstools     # FAT32 support
-    e2fsprogs      # ext2/3/4 support
-    exfatprogs     # exFAT support (alternative to exfat-utils)
-    f2fs-tools     # F2FS support
-    fatresize      # FAT resize support
-    ntfsprogs      # NTFS support
+    # kpmcore
+    kpmcore
+    bcachefs-tools
+    dosfstools
+    e2fsprogs
+    exfatprogs
+    f2fs-tools
+    fatresize
+    ntfsprogs
+    xfsprogs
 
     # fonts
     ttf-jetbrains-mono-nerd
@@ -53,11 +53,28 @@ install_packages() {
     virt-manager
     wireshark-qt
 
+    # ark
+    ark
+    7zip
+    unrar
+    unarchiver
+
+    # dolphin
+    dolphin
+    ffmpegthumbs
+    kdegraphics-thumbnailers
+    kio-admin
+    kompare
+
     # kde
-    kde-graphics-meta
-    kde-office-meta
-    kde-system-meta
-    kde-utilities-meta
+    filelight
+    okular
+    gwenview
+    spectacle
+    filelight
+    kcalc
+    kdeconnect
+    partitionmanager
 
     # tui
     neovim
@@ -74,6 +91,7 @@ install_packages() {
     stow
     curl
     wget
+    zip
     zoxide    # smarter cd
     starship  # shell prompt
     git-delta # better git diffs
