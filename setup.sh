@@ -127,7 +127,8 @@ install_packages() {
 
 enable_daemons() {
   local timers=(fstrim.timer paccache.timer)
-  sudo systemctl enable --now "${timers[@]}"
+  local sockets=(virtlxcd virtqemud virtstoraged)
+  sudo systemctl enable --now "${sockets[@]}" "${timers[@]}"
 }
 
 stow_dots() {
