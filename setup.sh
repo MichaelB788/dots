@@ -17,16 +17,20 @@ fi
 install_packages() {
   local pacman_pkgs=(
     # system
+    flatpak
     base-devel     # base development packages (make, automake, etc.)
     pacman-contrib # tools for pacman
     reflector      # ranks arch linux mirrors
     fwupd          # allows updating firmware
-    qemu-desktop   # desktop virtualization core
-    libvirt        # virtualization core
-    edk2-ovmf      # UEFI virtualization support
     7zip           # .7z support
     zip            # .zip support
     unrar          # .rar support
+
+    # virt manager
+    libvirt
+    qemu-desktop
+    edk2-ovmf # UEFI virtualization support
+    dnsmasq
 
     # optional dependecies for kpm core
     bcachefs-tools # BCacheFS support
@@ -47,21 +51,13 @@ install_packages() {
     firefox
     chromium
     virt-manager
-    mpv
+    wireshark-qt
 
     # kde
-    dolphin
-    ark                      # archiving
-    kio-admin                # "open as administrator" in Dolphin
-    ffmpegthumbs             # video thumbnails in Dolphin
-    kdegraphics-thumbnailers # pdf/image thumbnails in Dolphin
-    okular                   # document viewer
-    gwenview                 # image viewer
-    spectacle                # screenshot captures
-    filelight                # disk usage
-    kcalc                    # calculator
-    kdeconnect               # device sync
-    partitionmanager         # disk manager
+    kde-graphics-meta
+    kde-office-meta
+    kde-system-meta
+    kde-utilities-meta
 
     # tui
     neovim
@@ -88,9 +84,6 @@ install_packages() {
     bash-completion
 
     # c/c++
-    gcc
-    clang
-    make
     cmake
     ninja
     bear
@@ -99,14 +92,12 @@ install_packages() {
     gdb
     strace
     perf
-    sdl3
-    sdl3_ttf
-    sdl3_image
 
     # rust
     rustup
 
     # lsp / formatters / linters
+    clang
     cppcheck
     python-lsp-server
     ruff
@@ -123,6 +114,14 @@ install_packages() {
 
   rustup default stable
   rustup component add "${rust_pkgs[@]}"
+}
+
+add_user_to_groups() {
+  groups=(libvirt wireshark plugdev)
+  for group in "${groups[@]}"; do
+    sudo groupadd -f "$group"
+    sudo usermod -aG "$group" "$USER"
+  done
 }
 
 enable_daemons() {
@@ -146,6 +145,7 @@ stow_dots() {
 
 main() {
   install_packages
+  add_user_to_groups
   enable_daemons
   stow_dots
 }
