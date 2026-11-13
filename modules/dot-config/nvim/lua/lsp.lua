@@ -27,16 +27,14 @@ vim.lsp.config("*", {
 	capabilities = require("cmp_nvim_lsp").default_capabilities(),
 })
 
--- LSP Servers (only real language servers belong here)
+-- LSP Servers
 local servers = {
 	clangd = {
 		cmd = {
 			"clangd",
 			"--background-index",
 			"--clang-tidy",
-			"--header-insertion=never",
 			"--completion-style=detailed",
-			"--function-arg-placeholders=false",
 		},
 	},
 
