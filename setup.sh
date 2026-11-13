@@ -102,6 +102,7 @@ install_packages() {
 
     # devel packages
     base-devel
+    autoconf-archive
     cmake
     ninja
     bear
