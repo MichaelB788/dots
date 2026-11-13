@@ -91,6 +91,7 @@ install_packages() {
     curl
     wget
     zip
+    unzip
     zoxide
     starship
     git-delta
