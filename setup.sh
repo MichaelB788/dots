@@ -74,6 +74,7 @@ install_packages() {
     filelight
     kcalc
     kdeconnect
+    ktorrent
 
     # tui
     neovim
