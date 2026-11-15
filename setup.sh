@@ -3,6 +3,7 @@
 set -euo pipefail
 
 CWD=$(cd -- "$(dirname -- "${BASH_SOURCE[0]}")" >/dev/null && pwd)
+TIMESTAMP=$(date %s)
 
 if ! command -v pacman >/dev/null; then
   echo "pacman not found"
@@ -167,7 +168,7 @@ enable_daemons() {
 backup_path() {
   local target=$1
   if [[ -e $target && ! -L $target ]]; then
-    mv "$target" "$target.bak.$(date +%s)"
+    mv "$target" "$target.bak.$TIMESTAMP"
   fi
 }
 
