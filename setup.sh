@@ -2,7 +2,7 @@
 
 set -euo pipefail
 
-DOTS_PATH=$(cd -- "$(dirname -- "${BASH_SOURCE[0]}")" >/dev/null && pwd)
+CWD=$(cd -- "$(dirname -- "${BASH_SOURCE[0]}")" >/dev/null && pwd)
 
 if ! command -v pacman >/dev/null; then
   echo "pacman not found"
@@ -163,16 +163,25 @@ enable_daemons() {
   sudo systemctl enable --now "${timers[@]/%/.timer}"
 }
 
+# Move an existing real file/dir out of the way (symlinks are left alone)
+backup_path() {
+  local target=$1
+  if [[ -e $target && ! -L $target ]]; then
+    mv "$target" "$target.bak.$(date +%s)"
+  fi
+}
+
 stow_dots() {
   # Make backups
-  local dots_to_backup=(".bashrc" ".gitconfig" ".config/kitty" ".config/nvim" ".config/lazygit")
-  for dot in "${dots_to_backup[@]}"; do
-    if [[ (-f "$HOME/$dot" || -d "$HOME/$dot") && ! -L "$HOME/$dot" ]]; then
-      mv "$HOME/$dot" "$HOME/$dot.bak.$(date +%s)"
-    fi
+  for dot in bashrc gitconfig; do
+    backup_path "$HOME/.$dot"
   done
 
-  stow --target="$HOME" --dir="$DOTS_PATH" --dotfiles modules
+  for dot in kitty nvim lazygit zed niri; do
+    backup_path "$HOME/.config/$dot"
+  done
+
+  stow --target="$HOME" --dir="$CWD" --dotfiles modules
 }
 
 main() {
