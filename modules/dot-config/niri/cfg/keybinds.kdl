@@ -41,7 +41,7 @@ binds {
     XF86MonBrightnessDown               allow-when-locked=true { spawn-sh "noctalia msg brightness-down"; }
 
     // ─── Window Movement and Focus ───
-    Mod+Shift+Q                         { close-window; }
+    Mod+Q                               { close-window; }
 
     Mod+H                               { focus-column-left; }
     Mod+L                               { focus-column-right; }
