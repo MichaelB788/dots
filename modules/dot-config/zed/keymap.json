@@ -1,0 +1,71 @@
+[
+  // Terminal toggle
+  {
+    "context": "Dock || Terminal || Editor",
+    "bindings": {
+      "ctrl-t": "terminal_panel::Toggle",
+    },
+  },
+  // Re-enable terminal next and previous selections
+  {
+    "context": "Terminal",
+    "unbind": {
+      "ctrl-n": "workspace::NewFile",
+      "ctrl-p": "file_finder::Toggle",
+    },
+  },
+  // Empty pane bindings
+  {
+    "context": "EmptyPane || SharedScreen",
+    "bindings": {
+      // Open file finder
+      "space f": "file_finder::Toggle",
+    },
+  },
+  // Vim bindings
+  {
+    "context": "Editor && VimControl && !VimWaiting && !menu",
+    "bindings": {
+      // Open markdown preview
+      "space m p": "markdown::OpenPreview",
+      "space m P": "markdown::OpenPreviewToTheSide",
+
+      // Search word under cursor in current pane
+      "space s w": "buffer_search::Deploy",
+
+      // Search word under cursor in all panes
+      "space s W": "pane::DeploySearch",
+
+      // Move between panes
+      "shift-l": "pane::ActivateNextItem",
+      "shift-h": "pane::ActivatePreviousItem",
+      "space ,": "tab_switcher::Toggle",
+
+      // Search
+      "space g": "workspace::NewSearch",
+
+      // LSP & Code actions
+      "space c a": "editor::ToggleCodeActions",
+      "space s s": "outline::Toggle",
+      "space r n": "editor::Rename",
+
+      // File finder
+      "space f": "file_finder::Toggle",
+
+      // Jump to hunks
+      "] h": "editor::GoToHunk",
+      "[ h": "editor::GoToPreviousHunk",
+      "] c": "editor::GoToHunk",
+      "[ c": "editor::GoToPreviousHunk",
+
+      // Diagnostics
+      "] d": "editor::GoToDiagnostic",
+      "[ d": "editor::GoToPreviousDiagnostic",
+      "space d": "diagnostics::Deploy",
+
+      // Excerpts
+      "] q": "editor::MoveToStartOfNextExcerpt",
+      "[ q": "editor::MoveToStartOfExcerpt",
+    },
+  },
+]
