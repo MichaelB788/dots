@@ -28,10 +28,36 @@ install_packages() {
     noto-fonts-emoji
     ttf-liberation
 
+    # niri
+    niri
+    xdg-desktop-portal-kde
+    noctalia
+    ddcutil
+    power-profiles-daemon
+    upower
+    noctalia-greeter
+
     # gui
     firefox
     chromium
     wireshark-qt
+    zed
+
+    # tui
+    neovim
+    lazygit
+
+    # virt-manager
+    virt-manager
+    libvirt
+    qemu-desktop
+    edk2-ovmf
+    dnsmasq
+    iptables-nft
+
+    # kde apps
+    okular
+    filelight
 
     # ark
     ark
@@ -58,27 +84,18 @@ install_packages() {
     ntfsprogs
     xfsprogs
 
-    # virt-manager
-    virt-manager
-    libvirt
-    qemu-desktop
-    edk2-ovmf
-    dnsmasq
-    iptables-nft
-
-    # kde
-    filelight
-    okular
-    gwenview
-    spectacle
-    filelight
-    kcalc
-    kdeconnect
-    ktorrent
-
-    # tui
-    neovim
-    lazygit
+    # devel packages
+    base-devel
+    autoconf-archive
+    cmake
+    ninja
+    bear
+    ccache
+    valgrind
+    gdb
+    strace
+    perf
+    rustup
 
     # terminal utils
     bat
@@ -101,19 +118,6 @@ install_packages() {
     fastfetch
     tree-sitter-cli
     bash-completion
-
-    # devel packages
-    base-devel
-    autoconf-archive
-    cmake
-    ninja
-    bear
-    ccache
-    valgrind
-    gdb
-    strace
-    perf
-    rustup
 
     # lsp / formatters / linters
     clang
