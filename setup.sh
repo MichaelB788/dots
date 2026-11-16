@@ -3,7 +3,7 @@
 set -euo pipefail
 
 CWD=$(cd -- "$(dirname -- "${BASH_SOURCE[0]}")" >/dev/null && pwd)
-TIMESTAMP=$(date %s)
+TIMESTAMP=$(date +%s)
 
 if ! command -v pacman >/dev/null; then
   echo "pacman not found"
@@ -51,6 +51,7 @@ install_packages() {
     okular
     filelight
     spectacle
+    ktorrent
 
     # ark
     ark
