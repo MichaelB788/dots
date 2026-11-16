@@ -29,15 +29,6 @@ install_packages() {
     noto-fonts-emoji
     ttf-liberation
 
-    # niri
-    niri
-    xdg-desktop-portal-kde
-    noctalia
-    ddcutil
-    power-profiles-daemon
-    upower
-    noctalia-greeter
-
     # gui
     firefox
     chromium
@@ -59,6 +50,7 @@ install_packages() {
     # kde apps
     okular
     filelight
+    spectacle
 
     # ark
     ark
@@ -178,7 +170,7 @@ stow_dots() {
     backup_path "$HOME/.$dot"
   done
 
-  for dot in kitty nvim lazygit zed niri; do
+  for dot in kitty nvim lazygit zed; do
     backup_path "$HOME/.config/$dot"
   done
 
