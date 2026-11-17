@@ -3,7 +3,6 @@ vim.pack.add({
 	"https://github.com/neovim/nvim-lspconfig",
 	"https://github.com/hrsh7th/cmp-nvim-lsp",
 	"https://github.com/stevearc/conform.nvim",
-	"https://github.com/mfussenegger/nvim-lint",
 }, { confirm = false })
 
 -- Diagnostics
@@ -98,27 +97,11 @@ require("conform").setup({
 		sh = { "shfmt" },
 		bash = { "shfmt" },
 		python = { "ruff_fix", "ruff_format" },
-		-- c, cpp, rust: no entry, so conform falls back to clangd / rust-analyzer
 	},
 	format_on_save = {
 		timeout_ms = 1000,
 		lsp_format = "fallback",
 	},
-})
-
--- Linting for tools that have no language server
-local lint = require("lint")
-lint.linters_by_ft = {
-	c = { "cppcheck" },
-	cpp = { "cppcheck" },
-}
-table.insert(lint.linters.cppcheck.args, "--suppress=unusedStructMember")
-
-vim.api.nvim_create_autocmd({ "BufReadPost", "BufWritePost" }, {
-	group = vim.api.nvim_create_augroup("lint-on-save", { clear = true }),
-	callback = function()
-		lint.try_lint()
-	end,
 })
 
 -- Global keybindings
