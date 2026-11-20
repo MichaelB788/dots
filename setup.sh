@@ -2,19 +2,6 @@
 
 set -euo pipefail
 
-CWD=$(cd -- "$(dirname -- "${BASH_SOURCE[0]}")" >/dev/null && pwd)
-TIMESTAMP=$(date +%s)
-
-if ! command -v pacman >/dev/null; then
-  echo "pacman not found"
-  exit 1
-fi
-
-if [[ $EUID -eq 0 ]]; then
-  echo "Run this as your normal user, not root (it uses sudo where needed)"
-  exit 1
-fi
-
 install_packages() {
   local pacman_pkgs=(
     # system
@@ -161,7 +148,7 @@ enable_daemons() {
 backup_path() {
   local target=$1
   if [[ -e $target && ! -L $target ]]; then
-    mv "$target" "$target.bak.$TIMESTAMP"
+    mv "$target" "$target.bak.$timestamp"
   fi
 }
 
@@ -175,10 +162,25 @@ stow_dots() {
     backup_path "$HOME/.config/$dot"
   done
 
-  stow --target="$HOME" --dir="$CWD" --dotfiles modules
+  stow --target="$HOME" --dir="$cwd" --dotfiles modules
 }
 
 main() {
+  if ! command -v pacman >/dev/null; then
+    echo "pacman not found"
+    exit 1
+  fi
+
+  if [[ $EUID -eq 0 ]]; then
+    echo "Run this as your normal user, not root (it uses sudo where needed)"
+    exit 1
+  fi
+
+  local cwd timestamp
+
+  cwd=$(cd -- "$(dirname -- "${BASH_SOURCE[0]}")" >/dev/null && pwd)
+  timestamp=$(date +%s)
+
   install_packages
   install_extra_devel_tools
   add_user_to_groups
