@@ -16,7 +16,7 @@ alias pacin='sudo pacman -S'
 alias pacrm='sudo pacman -Rns'
 alias pacse='pacman -Ss'
 alias pacinfo='pacman -Qi'
-alias refl='reflector --latest 5 --protocol https --age 12 --sort rate --save /etc/pacman.d/mirrorlist'
+alias refl='sudo reflector --latest 5 --protocol https --age 12 --sort rate --save /etc/pacman.d/mirrorlist'
 
 PS1='[\u@\h \W]\$ '
 
